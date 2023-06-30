@@ -1,6 +1,6 @@
 import app from './app.js'
 import connectDB from "./config/db.js";
-connectDB()
+connectDB();
 app.listen(4000, () => {
-    console.log('server is up')
+    console.log('server is up at 4000');
 })
