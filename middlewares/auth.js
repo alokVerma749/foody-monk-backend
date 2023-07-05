@@ -15,6 +15,7 @@ const auth = async (req, res, next) => {
         req.user = {
             userid: await User.findOne({ _id }),
             name: name,
+            email: email,
             address: address
         }
         next();
