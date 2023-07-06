@@ -35,7 +35,7 @@ export const proceedwithPayment = async (req, res) => {
         }
         res.status(200).json({
             success: true,
-            message: 'order has benn placed',
+            message: 'order has been placed',
             response
         })
     } catch (error) {
@@ -57,7 +57,7 @@ export const getOrderDetails = async (req, res) => {
         }
         res.status(200).json({
             success: true,
-            message: 'orders fetching successfully',
+            message: 'orders fetched successfully',
             orders,
             username
         })
