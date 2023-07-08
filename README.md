@@ -22,7 +22,7 @@ To get started with the backend development, follow these steps:
 1. Clone this repository to your local machine.
 2. Install the dependencies by running `npm install`.
 3. Rename the `.env.example` file to `.env` and update the environment variables with your own configuration.
-4. Start the development server by running `npm start`.
+4. Start the development server by running `npm run dev`.
 5. The server will run on `http://localhost:4000`.
 
 ## API Documentation
