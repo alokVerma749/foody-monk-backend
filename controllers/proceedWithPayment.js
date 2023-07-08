@@ -67,3 +67,32 @@ export const getOrderDetails = async (req, res) => {
         })
     }
 }
+
+export const deleteOrder = async (req, res) => {
+    try {
+        const { id } = req.params;
+        if (!id) {
+            res.status(500).json({
+                success: false,
+                message: "can't find order id"
+            })
+        }
+        const deletedOrder = await Order.findByIdAndDelete(id)
+        if (!deletedOrder) {
+            res.status(500).json({
+                success: false,
+                message: 'todo deletion failed'
+            })
+        } else {
+            const orders = await Order.find()
+            res.status(200).json({
+                success: true,
+                message: 'order deleted successfully',
+                deletedOrder,
+                orders
+            })
+        }
+    } catch (error) {
+        throw new Error(error.message || 'Error')
+    }
+}
