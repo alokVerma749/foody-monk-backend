@@ -27,7 +27,7 @@ To get started with the backend development, follow these steps:
 
 ## API Documentation
 
-For detailed information about the API endpoints and how to use them, please refer to the [API documentation]([API_DOCUMENTATION](https://documenter.getpostman.com/view/20539214/2s93zH1eJ8)).
+For detailed information about the API endpoints and how to use them, please refer to the [API documentation](https://documenter.getpostman.com/view/20539214/2s93zH1eJ8).
 
 ## Contributing
 
