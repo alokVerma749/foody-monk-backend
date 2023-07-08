@@ -25,7 +25,7 @@ The following behaviors are considered unacceptable and will not be tolerated wi
 
 ## Reporting Incidents
 
-If you witness or experience any behavior that violates this code of conduct, please report the incident by contacting the project maintainers at [alokverma749@gmail.com]. All reports will be handled with confidentiality and will be promptly addressed. We reserve the right to take appropriate actions, including warning, moderation, or removal from the community, for those who violate this code of conduct.
+If you witness or experience any behavior that violates this code of conduct, please report the incident by contacting the project maintainers at alokverma749@gmail.com. All reports will be handled with confidentiality and will be promptly addressed. We reserve the right to take appropriate actions, including warning, moderation, or removal from the community, for those who violate this code of conduct.
 
 ## Attribution
 
