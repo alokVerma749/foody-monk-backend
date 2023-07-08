@@ -19,8 +19,7 @@ import adminRoute from './routes/adminRoute.js'
 
 app.use('/user', user);
 app.use('/checkout', checkout);
-
 app.use('/proceedwithpayment', proceedWithPayment);
-app.use('/admin', adminRoute)
+app.use('/admin', adminRoute);
 
 export default app;

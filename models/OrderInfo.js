@@ -24,4 +24,4 @@ const orderInfoSchema = new Schema({
 })
 
 
-export default mongoose.model('Order', orderInfoSchema)
+export default mongoose.model('Order', orderInfoSchema);
