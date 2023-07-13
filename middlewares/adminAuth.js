@@ -13,7 +13,7 @@ const adminAuth = async (req, res, next) => {
     try {
         const { _id, name } = jwt.verify(token, process.env.JWT_SECRET);
         const { email, address } = await User.findOne({ _id })
-        if (email !== "alokverma749@gmail.com" || "demoadmin123@gmail.com") {
+        if (email !== "alokverma749@gmail.com" && email !== "demoadmin123@gmail.com") {
             return res.status(501).json({
                 success: false,
                 message: "This is an admin route"
