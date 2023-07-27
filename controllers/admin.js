@@ -1,6 +1,7 @@
 import Order from "../models/OrderInfo.js";
 import Cuisine from "../models/Cuisine.js";
 import Contact from "../models/Contact.js";
+import User from "../models/User.js";
 
 export const addCuisine = async (req, res) => {
     try {
@@ -59,6 +60,7 @@ export const getContactForms = async (req, res) => {
         })
     }
 }
+
 export const deleteContactMessages = async (req, res) => {
     try {
         const { id } = req.params;
@@ -124,7 +126,7 @@ export const deleteOrder = async (req, res) => {
         if (!deletedOrder) {
             res.status(500).json({
                 success: false,
-                message: 'todo deletion failed'
+                message: 'order deletion failed'
             })
         } else {
             const orders = await Order.find()
@@ -133,6 +135,57 @@ export const deleteOrder = async (req, res) => {
                 message: 'order deleted successfully',
                 deletedOrder,
                 orders
+            })
+        }
+    } catch (error) {
+        throw new Error(error.message || 'Error')
+    }
+}
+
+export const getUsers = async (req, res) => {
+    try {
+        const response = await User.find({});
+        if (!response) {
+            return res.status(500).json({
+                success: false,
+                message: 'Users fetching failed'
+            })
+        }
+        res.status(200).json({
+            success: true,
+            message: 'users fetched successfully',
+            response
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message
+        })
+    }
+
+}
+export const deleteUser = async (req, res) => {
+    try {
+        const { id } = req.params;
+        if (!id) {
+            res.status(500).json({
+                success: false,
+                message: "can't find user id"
+            })
+        }
+        const deletedUser = await User.findByIdAndDelete(id)
+        if (!deletedUser) {
+            res.status(500).json({
+                success: false,
+                message: 'user deletion failed'
+            })
+        } else {
+            const users = await User.find({});
+            res.status(200).json({
+                success: true,
+                message: 'users deleted successfully',
+                deleteUser,
+                users
             })
         }
     } catch (error) {
