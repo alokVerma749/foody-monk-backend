@@ -1,4 +1,5 @@
 import User from '../models/User.js';
+import Contact from '../models/Contact.js';
 
 export const signup = async (req, res) => {
     try {
@@ -69,6 +70,41 @@ export const login = async (req, res) => {
             success: true,
             message: 'user logged in successfully',
             token
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message
+        })
+    }
+}
+export const contact = async (req, res) => {
+    try {
+        const { email, subject, message } = req.body;
+
+        if (!email || !subject) {
+            return res.status(404).json({
+                success: false,
+                message: 'fill required fields'
+            })
+        }
+
+        const contact = new Contact({
+            email,
+            subject,
+            message
+        })
+        const response = await contact.save();
+        if (!response) {
+            return res.status(500).json({
+                success: false,
+                message: 'message not send'
+            })
+        }
+        res.status(200).json({
+            success: true,
+            message: 'message send successfully',
+            response
         })
     } catch (error) {
         res.status(500).json({
