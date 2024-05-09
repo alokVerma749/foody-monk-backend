@@ -1,12 +1,25 @@
 import mongoose from 'mongoose'
 
-const connectDB = async function () {
-    try {
-        await mongoose.connect(process.env.MONGODBURI);
-        console.log('db connection success');
-    } catch (error) {
-        throw new Error(error.message)
-    }
-}
+let cachedDB = null
 
-export default connectDB;
+export default async function connectDB() {
+  if (cachedDB) {
+    console.info("Using cached connection!")
+    return cachedDB
+  }
+
+  console.info("No connection found! Creating a new one.")
+
+  const uri = process.env.DB_URI
+  const dbName = process.env.DB_NAME
+
+  try {
+    const connection = await mongoose.connect(uri, { dbName })
+    console.info(`Connected to MongoDB: ${uri}`)
+    cachedDB = connection.connection
+    return cachedDB
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error)
+    throw error
+  }
+}
